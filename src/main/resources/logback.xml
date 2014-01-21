@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logfile.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%logger{0}] %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="HIBERNATE-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>hibernate.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%logger{0}] %m%n</pattern>
+        </encoder>
+    </appender>
+    
+<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+        <pattern>%d{HH:mm:ss.SSS} %-5level [%logger{0}] %m%n</pattern>
+    </encoder>
+</appender>
+
+<logger name="org.hibernate.type" additivity="false">
+    <level value="INFO" />
+    <appender-ref ref="HIBERNATE-FILE" />
+</logger>
+<logger name="org.hibernate" additivity="false">
+    <level value="INFO" />
+    <appender-ref ref="HIBERNATE-FILE" />
+</logger>
+<root>
+    <level value="DEBUG"  />
+    <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT" />
+</root>
+</configuration>

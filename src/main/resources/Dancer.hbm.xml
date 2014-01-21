@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-Dec-2013 22:07:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="lpostula.app.square.entity.Dancer" table="DANCER">
+        <id name="Id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="FirstName" type="java.lang.String">
+            <column name="FIRSTNAME" />
+        </property>
+        <property name="LastName" type="java.lang.String">
+            <column name="LASTNAME" />
+        </property>
+        <many-to-one name="Club" class="lpostula.app.square.entity.Club" fetch="select">
+            <column name="CLUB_ID" not-null="false" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
